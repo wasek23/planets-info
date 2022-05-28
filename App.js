@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, View } from 'react-native';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font';
+import { Antonio_500Medium } from '@expo-google-fonts/antonio';
+
+import Home from './src/screens/Home/Home';
+import Details from './src/screens/Details/Details';
+import Text from './src/components/Text/Text';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+	const [loaded] = useFonts({
+		Antonio_500Medium,
+		'Spartan-Bold': require('./assets/fonts/Spartan-Bold.ttf'),
+		'Spartan-Regular': require('./assets/fonts/Spartan-Regular.ttf'),
+	});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	if (!loaded) {
+		<View>
+			<Text>Fonts Loading...</Text>
+		</View>
+	}
+
+	return <>
+		<StatusBar style='light' />
+		<NavigationContainer>
+			<Stack.Navigator screenOptions={{ headerShown: false }}>
+				<Stack.Screen name='Home' component={Home} />
+				<Stack.Screen name='Details' component={Details} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	</>;
+}
