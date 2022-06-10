@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import Text from '../../components/Text/Text';
 import spacing from '../../theme/spacing';
 import colors from '../../theme/colors';
-import { MercurySvg } from '../../svg';
+import { MercurySvg, VenusSvg, EarthSvg, MarsSvg, JupiterSvg, SaturnSvg, UranusSvg, NeptuneSvg } from '../../svg';
 
 const Details = ({ route }) => {
 	const planet = route.params.planet;
@@ -15,19 +15,19 @@ const Details = ({ route }) => {
 			case 'mercury':
 				return <MercurySvg />;
 			case 'venus':
-				return null;
+				return <VenusSvg />;
 			case 'earth':
-				return null;
+				return <EarthSvg />;
 			case 'mars':
-				return null;
+				return <MarsSvg />;
 			case 'jupiter':
-				return null;
+				return <JupiterSvg />;
 			case 'saturn':
-				return null;
+				return <SaturnSvg />;
 			case 'uranus':
-				return null;
+				return <UranusSvg />;
 			case 'neptune':
-				return null;
+				return <NeptuneSvg />;
 			default:
 				return null;
 		}
@@ -46,10 +46,12 @@ const Details = ({ route }) => {
 				<Text style={styles.description}>{description}</Text>
 			</View>
 
-			<Pressable style={styles.source} onPress={() => Linking.openURL(wikiLink)}>
+			<View style={styles.source}>
 				<Text>Source:</Text>
-				<Text preset='h4' style={styles.wikipedia}>Wikipedia</Text>
-			</Pressable>
+				<Pressable onPress={() => Linking.openURL(wikiLink)}>
+					<Text preset='h4' style={styles.wikipedia}>Wikipedia</Text>
+				</Pressable>
+			</View>
 
 			<View style={styles.dataSection}>
 				<PlanetData title='Rotation Time' value={rotationTime} />

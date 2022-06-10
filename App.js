@@ -1,5 +1,5 @@
 import { StatusBar, View } from 'react-native';
-import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 import { Antonio_500Medium } from '@expo-google-fonts/antonio';

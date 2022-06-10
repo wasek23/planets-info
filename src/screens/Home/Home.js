@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { SafeAreaView, StyleSheet, FlatList, View, TextInput, Pressable } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
 import PLANET_LIST from '../../components/data/planet-list';
